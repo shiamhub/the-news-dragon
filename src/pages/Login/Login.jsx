@@ -3,11 +3,14 @@ import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const {signIn} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+
+    useTitle('login')
 
     const from = location.state?.from?.pathname || '/category/0';
 
@@ -26,7 +29,6 @@ const Login = () => {
         })
         .catch(error => console.log(error))
     }
-
 
     return (
         <Container className='w-25 mx-auto'>

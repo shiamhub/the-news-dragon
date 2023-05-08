@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import EditorsInsidhts from '../../News/EditorsInsidhts/EditorsInsidhts';
+import useTitle from '../../../hooks/useTitle';
 
 const LeftNav = () => {
     const [categories, setCategories] = useState([]);
-
+    useTitle('home')
     useEffect( () => {
         fetch('https://the-news-dragon-server-shiamhub.vercel.app/categories')
         .then(res => res.json())
